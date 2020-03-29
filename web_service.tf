@@ -48,12 +48,12 @@ resource "aws_ecs_service" "web" {
   }
 
   load_balancer {
-    target_group_arn = var.alb_target_group.id
+    target_group_arn = aws_alb_target_group.web.id
     container_name   = "web"
     container_port   = "80"
   }
 
-  depends_on = [var.alb_listener]
+  depends_on = [aws_alb_listener.http]
 
   lifecycle {
     create_before_destroy = true

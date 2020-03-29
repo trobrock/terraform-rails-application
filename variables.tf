@@ -91,19 +91,24 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "alb_listener" {
-  description = "The ALB Listener to use in the load balancer configuration"
-}
-
-variable "alb_target_group" {
-  description = "The ALB Target Group to use in the load balancer configuration"
-}
-
-variable "load_balance_security_group" {
-  description = "The Security group for the ALB"
+variable "public_subnets" {
+  description = "The public subnets for the load balances to be available in"
+  type        = list(string)
 }
 
 variable "key_pair_public_key" {
   description = "The public key for the EC2 Key Pair to use when running remote_console"
   type        = string
+}
+
+variable "enable_ssl" {
+  description = "Enable SSL on the load balance"
+  type        = bool
+  default     = false
+}
+
+variable "acm_certificate_arn" {
+  description = "The ARN of the SSL certificate to use for SSL (required is enable_ssl is true)"
+  type        = string
+  default     = null
 }

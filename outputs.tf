@@ -17,3 +17,7 @@ output "ecs_cluster" {
 output "one_off_task_definition_name" {
   value = aws_ecs_task_definition.one_off.family
 }
+
+output "alb" {
+  value = aws_alb.main
+}
