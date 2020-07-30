@@ -21,3 +21,7 @@ output "one_off_task_definition_name" {
 output "alb" {
   value = aws_alb.main
 }
+
+output "ecs_task_execution_role" {
+  value = aws_iam_role.ecs_task_execution_role
+}
