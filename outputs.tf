@@ -10,6 +10,10 @@ output "worker_service_name" {
   value = aws_ecs_service.worker.name
 }
 
+output "one_off_service_name" {
+  value = aws_ecs_service.one_off.name
+}
+
 output "ecs_cluster" {
   value = aws_ecs_cluster.main
 }
